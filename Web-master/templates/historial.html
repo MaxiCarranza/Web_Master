@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+{% block historial %}
+    <br>
+    <h1 class="text-center">Consultar historial de equipo</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+          {{ form.sap_id(class_='form-control', placeholder='Ingrese SAP ID') }}
+          
+          {% for error in form.sap_id.errors %}
+            <span style="color:red">{{ error }}</span><br>
+          {% endfor %}
+        </div>
+        {{ form.submit(class_='btn btn-primary' ) }}
+    </form>
+
+    {% include "simple-table.html"%}
+
+{% endblock %}

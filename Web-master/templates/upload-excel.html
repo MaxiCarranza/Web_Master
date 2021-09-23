@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block upload %}
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.excel_file(class_='form-control') }}
+        
+        {% for error in form.excel_file.errors %}
+          <span style="color:red">{{ error }}</span><br>
+        {% endfor %}
+    </div>
+      {{ form.submit(class_='btn btn-primary' ) }}
+</form>
+
+{% include "excel-table.html"%}
+{% endblock %}

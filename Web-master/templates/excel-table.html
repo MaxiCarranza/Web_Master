@@ -1,0 +1,28 @@
+{% if results %}
+    <div class="table-responsive" style='height: 700px;'>
+        <table class="table table-sm table-hover tableFixHead">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">A</th>
+                <th scope="col">B</th>
+                <th scope="col">C</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{result[0]}}</td>
+                    <td>{{result[1]}}</td>
+                    <td>{{result[2]}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% elif results == [] %}
+    <div class="container">
+        <h2 class="text-center">No existe {{ form.sap_id.data }} :(</h2>
+    </div>
+{% endif %}
